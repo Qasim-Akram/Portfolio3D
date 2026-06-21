@@ -1,0 +1,1312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ===================== SEO ===================== -->
+<title>Qasim Akram — Full Stack Developer &amp; AI Engineer | Muhammad Qasim Akram</title>
+<meta name="description" content="Qasim Akram (Muhammad Qasim Akram) is a full stack developer and AI engineer from Bahawalpur, Pakistan. React, Django, Node.js, YOLOv8 and LLM systems, deployed and shipped.">
+<meta name="keywords" content="Qasim Akram, M Qasim Akram, Muhammad Qasim Akram, Full Stack Developer Pakistan, AI Engineer Bahawalpur, Django React Developer Pakistan">
+<meta name="author" content="Muhammad Qasim Akram">
+<link rel="canonical" href="https://muhammadqasimakram.netlify.app/">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Qasim Akram — Full Stack Developer & AI Engineer">
+<meta property="og:description" content="Full stack developer and AI engineer. React, Django, Node.js, YOLOv8, LLM systems. Deployed and shipped, not stuck on localhost.">
+<meta property="og:url" content="https://muhammadqasimakram.netlify.app/">
+<meta property="og:image" content="https://muhammadqasimakram.netlify.app/img/profile.png">
+<meta property="og:site_name" content="Qasim Akram — Portfolio">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Qasim Akram — Full Stack Developer & AI Engineer">
+<meta name="twitter:description" content="Full stack developer and AI engineer from Pakistan. React, Django, Node.js, LLM APIs, YOLOv8.">
+<meta name="twitter:image" content="https://muhammadqasimakram.netlify.app/img/profile.png">
+<meta name="twitter:site" content="@Qasim_Akram46">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Muhammad Qasim Akram",
+  "alternateName": ["Qasim Akram", "M Qasim Akram"],
+  "url": "https://muhammadqasimakram.netlify.app/",
+  "image": "https://muhammadqasimakram.netlify.app/img/profile.png",
+  "jobTitle": "Full Stack Developer & AI Engineer",
+  "alumniOf": {
+    "@type": "CollegeOrUniversity",
+    "name": "Islamia University of Bahawalpur"
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Bahawalpur",
+    "addressCountry": "Pakistan"
+  },
+  "sameAs": [
+    "https://linkedin.com/in/qasimakram",
+    "https://github.com/Qasim-Akram",
+    "https://instagram.com/m_qasimakram",
+    "https://x.com/Qasim_Akram46",
+    "https://medium.com/@qasimakram"
+  ]
+}
+</script>
+
+<!-- ===================== FONTS ===================== -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+/* ===================== TOKENS ===================== */
+:root{
+  --bg-void:#0A0D12;
+  --bg-panel:#11161D;
+  --bg-panel-2:#161D26;
+  --ink:#F4F6F8;
+  --ink-dim:#8B95A1;
+  --ink-faint:#525C68;
+  --accent-amber:#FFB454;
+  --accent-cyan:#4DE8E0;
+  --accent-violet:#9C8CFF;
+  --accent-green:#6FE7A0;
+  --border:rgba(244,246,248,0.09);
+  --font-display:'Space Grotesk',sans-serif;
+  --font-body:'Inter',sans-serif;
+  --font-mono:'IBM Plex Mono',monospace;
+  --container:1180px;
+}
+
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;}}
+
+body{
+  background:var(--bg-void);
+  color:var(--ink);
+  font-family:var(--font-body);
+  font-size:16px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+
+a{color:inherit;text-decoration:none;}
+ul{list-style:none;}
+img{max-width:100%;display:block;}
+
+::selection{background:var(--accent-amber);color:var(--bg-void);}
+
+a:focus-visible,button:focus-visible{
+  outline:2px solid var(--accent-amber);
+  outline-offset:3px;
+  border-radius:4px;
+}
+
+.eyebrow{
+  font-family:var(--font-mono);
+  font-size:12px;
+  letter-spacing:0.12em;
+  color:var(--ink-dim);
+  text-transform:uppercase;
+  margin-bottom:18px;
+}
+.eyebrow .dot{color:var(--accent-amber);margin-right:2px;}
+.sep{color:var(--accent-amber);opacity:0.7;margin:0 2px;}
+
+.big-heading{
+  font-family:var(--font-display);
+  font-weight:600;
+  font-size:clamp(32px,5vw,58px);
+  line-height:1.08;
+  letter-spacing:-0.01em;
+  margin-bottom:48px;
+}
+
+.section{
+  max-width:var(--container);
+  margin:0 auto;
+  padding:140px 32px;
+  position:relative;
+}
+
+/* ===================== NAV ===================== */
+.pill-nav{
+  position:fixed;
+  top:20px;
+  left:50%;
+  transform:translateX(-50%);
+  z-index:200;
+  display:flex;
+  align-items:center;
+  gap:6px;
+  background:rgba(17,22,29,0.72);
+  border:1px solid var(--border);
+  backdrop-filter:blur(16px);
+  -webkit-backdrop-filter:blur(16px);
+  border-radius:999px;
+  padding:10px 10px 10px 22px;
+  box-shadow:0 8px 30px rgba(0,0,0,0.35);
+}
+.pill-logo{
+  font-family:var(--font-display);
+  font-weight:700;
+  font-size:16px;
+  letter-spacing:0.02em;
+  margin-right:18px;
+}
+.pill-logo span{color:var(--accent-amber);}
+.pill-links{display:flex;gap:26px;margin-right:10px;}
+.pill-links a{
+  font-size:13px;
+  font-weight:500;
+  color:var(--ink-dim);
+  transition:color .25s ease;
+  white-space:nowrap;
+}
+.pill-links a:hover{color:var(--ink);}
+.pill-links a.active{color:var(--accent-amber);}
+.pill-toggle{
+  display:none;
+  width:36px;height:36px;
+  border-radius:50%;
+  background:var(--bg-panel-2);
+  border:none;
+  cursor:pointer;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:4px;
+}
+.pill-toggle span{
+  width:14px;height:1.5px;background:var(--ink);display:block;
+  transition:transform .25s ease, opacity .25s ease;
+}
+.mobile-menu{
+  display:none;
+  position:fixed;
+  top:78px;left:50%;transform:translateX(-50%);
+  z-index:199;
+  background:rgba(17,22,29,0.96);
+  border:1px solid var(--border);
+  border-radius:20px;
+  padding:18px 28px;
+  flex-direction:column;
+  gap:16px;
+  backdrop-filter:blur(16px);
+  opacity:0;
+  pointer-events:none;
+  transform-origin:top center;
+  transition:opacity .25s ease, transform .25s ease;
+}
+.mobile-menu.open{opacity:1;pointer-events:auto;transform:translateX(-50%) translateY(0);}
+.mobile-menu a{font-size:14px;color:var(--ink-dim);}
+.mobile-menu a:hover{color:var(--ink);}
+
+.float-actions{
+  position:fixed;
+  right:24px;
+  bottom:24px;
+  z-index:200;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+.float-btn{
+  font-family:var(--font-mono);
+  font-size:12.5px;
+  letter-spacing:0.04em;
+  padding:13px 20px;
+  border-radius:999px;
+  background:var(--bg-panel-2);
+  border:1px solid var(--border);
+  color:var(--ink);
+  text-align:center;
+  transition:transform .2s ease, background .2s ease, border-color .2s ease;
+}
+.float-btn:hover{transform:translateY(-2px);border-color:var(--accent-amber);}
+.float-btn--solid{
+  background:var(--accent-amber);
+  color:#1A1306;
+  font-weight:600;
+  border-color:var(--accent-amber);
+}
+.float-btn--solid:hover{background:#ffc476;}
+
+/* ===================== HERO ===================== */
+.hero{
+  position:relative;
+  min-height:100svh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  padding:32px;
+  overflow:hidden;
+}
+#heroCanvas{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  display:block;
+  z-index:0;
+}
+.hero-fade{
+  position:absolute;
+  inset:0;
+  z-index:1;
+  background:linear-gradient(180deg, rgba(10,13,18,0.15) 0%, rgba(10,13,18,0.55) 60%, var(--bg-void) 100%);
+  pointer-events:none;
+}
+.hero-eyebrow{
+  position:relative;z-index:2;
+  max-width:var(--container);
+  width:100%;
+  margin:0 auto;
+  margin-top:90px;
+}
+.hero-loc{
+  position:relative;z-index:2;
+  max-width:var(--container);
+  width:100%;
+  margin:0 auto;
+  font-family:var(--font-mono);
+  font-size:11px;
+  letter-spacing:0.1em;
+  color:var(--ink-faint);
+  margin-top:-12px;
+}
+.hero-loc .sep{color:var(--ink-faint);}
+.hero-copy{
+  position:relative;z-index:2;
+  max-width:var(--container);
+  width:100%;
+  margin:auto auto 0 auto;
+  padding-bottom:90px;
+}
+.hero-title{
+  font-family:var(--font-display);
+  font-weight:700;
+  font-size:clamp(40px,8.2vw,108px);
+  line-height:0.98;
+  letter-spacing:-0.02em;
+}
+.hero-title .line{display:block;}
+.hero-title em{
+  font-style:normal;
+  background:linear-gradient(90deg, var(--accent-amber), var(--accent-cyan));
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+.hero-sub{
+  max-width:520px;
+  margin-top:28px;
+  color:var(--ink-dim);
+  font-size:17px;
+  line-height:1.6;
+}
+.hero-cta{
+  display:flex;
+  gap:14px;
+  margin-top:38px;
+  flex-wrap:wrap;
+}
+.btn{
+  font-family:var(--font-body);
+  font-weight:600;
+  font-size:14.5px;
+  padding:15px 28px;
+  border-radius:999px;
+  transition:transform .2s ease, background .2s ease, border-color .2s ease, color .2s ease;
+  display:inline-block;
+}
+.btn--solid{background:var(--ink);color:var(--bg-void);}
+.btn--solid:hover{transform:translateY(-2px);background:var(--accent-amber);}
+.btn--outline{border:1px solid var(--border);color:var(--ink);}
+.btn--outline:hover{transform:translateY(-2px);border-color:var(--ink);}
+
+.scroll-cue{
+  position:absolute;
+  bottom:32px;
+  left:32px;
+  z-index:2;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-family:var(--font-mono);
+  font-size:11px;
+  letter-spacing:0.1em;
+  color:var(--ink-faint);
+  text-transform:uppercase;
+}
+.scroll-cue span{
+  width:1px;height:28px;
+  background:linear-gradient(180deg, var(--accent-amber), transparent);
+  display:block;
+  animation:scrollPulse 2s ease-in-out infinite;
+}
+@keyframes scrollPulse{
+  0%,100%{opacity:.3;transform:scaleY(.6);transform-origin:top;}
+  50%{opacity:1;transform:scaleY(1);transform-origin:top;}
+}
+
+/* ===================== REVEAL TEXT ===================== */
+.reveal-blur{
+  filter:blur(14px);
+  opacity:0;
+  transform:translateY(24px);
+  will-change:filter,opacity,transform;
+}
+@media (prefers-reduced-motion:reduce){
+  .reveal-blur{filter:none;opacity:1;transform:none;}
+}
+
+/* ===================== ABOUT ===================== */
+.about-grid{
+  display:grid;
+  grid-template-columns:1.4fr 1fr;
+  gap:64px;
+}
+.about-copy p{
+  color:var(--ink-dim);
+  font-size:17px;
+  margin-bottom:20px;
+  max-width:56ch;
+}
+.about-copy p:last-child{margin-bottom:0;}
+.about-stats{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:28px;
+  align-content:start;
+}
+.stat{
+  border-top:1px solid var(--border);
+  padding-top:16px;
+}
+.stat-num{
+  font-family:var(--font-display);
+  font-weight:700;
+  font-size:42px;
+  color:var(--ink);
+}
+.stat-plus{
+  font-family:var(--font-display);
+  font-weight:700;
+  font-size:42px;
+  color:var(--accent-amber);
+}
+.stat-label{
+  display:block;
+  font-family:var(--font-mono);
+  font-size:11.5px;
+  letter-spacing:0.06em;
+  color:var(--ink-faint);
+  margin-top:6px;
+  text-transform:uppercase;
+}
+
+/* ===================== STACK ===================== */
+.stack-grid{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:1px;
+  background:var(--border);
+  border:1px solid var(--border);
+  border-radius:18px;
+  overflow:hidden;
+}
+.stack-col{
+  background:var(--bg-panel);
+  padding:28px 22px;
+}
+.stack-col h3{
+  font-family:var(--font-mono);
+  font-size:12px;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  color:var(--accent-cyan);
+  margin-bottom:18px;
+}
+.stack-col li{
+  font-size:14px;
+  color:var(--ink-dim);
+  padding:7px 0;
+  border-top:1px solid var(--border);
+}
+.stack-col li:first-child{border-top:none;}
+
+.learning-row{
+  display:flex;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:36px;
+}
+.learning-label{
+  font-family:var(--font-mono);
+  font-size:11.5px;
+  color:var(--ink-faint);
+  letter-spacing:0.06em;
+  text-transform:uppercase;
+  margin-right:6px;
+}
+.chip{
+  font-size:13px;
+  padding:8px 16px;
+  border-radius:999px;
+  border:1px solid var(--border);
+  color:var(--ink-dim);
+}
+
+/* ===================== WORK ===================== */
+.project-list{display:flex;flex-direction:column;gap:28px;}
+.project-card{
+  display:grid;
+  grid-template-columns:0.95fr 1.05fr;
+  gap:0;
+  border:1px solid var(--border);
+  border-radius:22px;
+  overflow:hidden;
+  background:var(--bg-panel);
+  transition:transform .35s ease, border-color .35s ease;
+}
+.project-card:hover{transform:translateY(-5px);border-color:rgba(244,246,248,0.18);}
+.project-card:hover .mockup-glow{opacity:0.8;}
+.mockup-glow{transition:opacity .35s ease;}
+.project-visual{
+  position:relative;
+  min-height:260px;
+  background:var(--bg-panel-2);
+  overflow:hidden;
+}
+.project-visual::before{
+  content:"";
+  position:absolute;
+  top:0;left:0;right:0;height:34px;
+  background:rgba(0,0,0,0.25);
+  border-bottom:1px solid var(--border);
+  z-index:2;
+}
+.project-visual::after{
+  content:"";
+  position:absolute;
+  top:12px;left:16px;
+  width:8px;height:8px;border-radius:50%;
+  background:var(--ink-faint);
+  box-shadow:16px 0 0 var(--ink-faint), 32px 0 0 var(--ink-faint);
+  z-index:3;
+}
+.mockup-glow{
+  position:absolute;
+  width:260px;height:260px;
+  border-radius:50%;
+  filter:blur(60px);
+  opacity:0.55;
+  top:50%;left:50%;
+  transform:translate(-50%,-40%);
+  animation:mockupPulse 6s ease-in-out infinite;
+}
+@keyframes mockupPulse{
+  0%,100%{transform:translate(-50%,-40%) scale(1);}
+  50%{transform:translate(-50%,-40%) scale(1.18);}
+}
+.mockup--chat .mockup-glow{background:var(--accent-cyan);}
+.mockup--devchat .mockup-glow{background:var(--accent-violet);}
+.mockup--eyespy .mockup-glow{background:var(--accent-amber);}
+.mockup--ecom .mockup-glow{background:var(--accent-green);}
+.mockup--stock .mockup-glow{background:var(--accent-amber);}
+
+.project-info{padding:38px 40px;display:flex;flex-direction:column;justify-content:center;}
+.project-num{
+  font-family:var(--font-mono);
+  font-size:12px;
+  color:var(--ink-faint);
+}
+.project-info h3{
+  font-family:var(--font-display);
+  font-size:28px;
+  font-weight:600;
+  margin:8px 0 14px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+.project-tag-live{
+  font-family:var(--font-mono);
+  font-size:10.5px;
+  letter-spacing:0.05em;
+  padding:4px 10px;
+  border-radius:999px;
+  background:rgba(111,231,160,0.12);
+  color:var(--accent-green);
+  text-transform:uppercase;
+}
+.project-tag-live--code{
+  background:rgba(156,140,255,0.14);
+  color:var(--accent-violet);
+}
+.project-info p{color:var(--ink-dim);font-size:15px;margin-bottom:20px;max-width:48ch;}
+.project-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px;}
+.project-tags span{
+  font-family:var(--font-mono);
+  font-size:11.5px;
+  padding:6px 12px;
+  border-radius:999px;
+  border:1px solid var(--border);
+  color:var(--ink-faint);
+}
+.project-link{
+  font-size:14px;
+  font-weight:600;
+  color:var(--accent-amber);
+  width:fit-content;
+}
+.project-link:hover{text-decoration:underline;}
+
+/* ===================== SERVICES ===================== */
+.service-list{border-top:1px solid var(--border);}
+.service-row{
+  display:grid;
+  grid-template-columns:1fr 1.2fr auto;
+  align-items:center;
+  gap:24px;
+  padding:30px 0;
+  border-bottom:1px solid var(--border);
+}
+.service-row h3{
+  font-family:var(--font-display);
+  font-size:22px;
+  font-weight:600;
+}
+.service-desc{color:var(--ink-dim);font-size:14.5px;}
+.service-tags{
+  font-family:var(--font-mono);
+  font-size:11.5px;
+  color:var(--ink-faint);
+  text-align:right;
+  white-space:nowrap;
+}
+.service-tags .sep{color:var(--ink-faint);}
+
+/* ===================== FREELANCE ===================== */
+.section--freelance{padding-top:60px;padding-bottom:60px;}
+.freelance-quote{
+  font-family:var(--font-display);
+  font-weight:500;
+  font-size:clamp(22px,3vw,32px);
+  line-height:1.45;
+  max-width:880px;
+  color:var(--ink);
+}
+
+/* ===================== CONTACT ===================== */
+.contact-heading{margin-bottom:20px;}
+.contact-sub{color:var(--ink-dim);font-size:17px;margin-bottom:48px;max-width:50ch;}
+.contact-email{
+  font-family:var(--font-display);
+  font-size:clamp(24px,3.6vw,40px);
+  font-weight:600;
+  color:var(--ink);
+  display:inline-block;
+  border-bottom:1px solid var(--border);
+  padding-bottom:8px;
+  transition:color .2s ease, border-color .2s ease;
+}
+.contact-email:hover{color:var(--accent-amber);border-color:var(--accent-amber);}
+.social-row{
+  display:flex;
+  flex-wrap:wrap;
+  gap:22px;
+  margin-top:32px;
+}
+.social-row a{
+  font-size:14px;
+  color:var(--ink-dim);
+  transition:color .2s ease;
+}
+.social-row a:hover{color:var(--ink);}
+
+/* ===================== FOOTER ===================== */
+.footer{
+  background:#000;
+  padding:90px 32px 0;
+  overflow:hidden;
+  position:relative;
+}
+.footer-top{
+  max-width:var(--container);
+  margin:0 auto;
+  display:flex;
+  justify-content:space-between;
+  gap:40px;
+  flex-wrap:wrap;
+  padding-bottom:70px;
+}
+.footer-label{
+  display:block;
+  font-family:var(--font-mono);
+  font-size:11.5px;
+  letter-spacing:0.06em;
+  color:var(--ink-faint);
+  text-transform:uppercase;
+  margin-bottom:18px;
+}
+.footer-pills{display:flex;flex-wrap:wrap;gap:10px;max-width:320px;}
+.footer-pills a{
+  font-size:13px;
+  padding:9px 16px;
+  border-radius:999px;
+  background:var(--bg-panel);
+  color:var(--ink-dim);
+  transition:background .2s ease,color .2s ease;
+}
+.footer-pills a:hover{background:var(--accent-amber);color:#1A1306;}
+.footer-email{
+  font-family:var(--font-display);
+  font-size:20px;
+  font-weight:600;
+  color:var(--ink);
+}
+.footer-email:hover{color:var(--accent-amber);}
+.footer-watermark{
+  font-family:var(--font-display);
+  font-weight:700;
+  font-size:clamp(64px,15vw,220px);
+  line-height:1;
+  text-align:center;
+  background:linear-gradient(180deg, rgba(244,246,248,0.10), rgba(244,246,248,0.015));
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+  white-space:nowrap;
+  letter-spacing:-0.02em;
+  user-select:none;
+  margin:0 -32px;
+}
+.footer-bottom{
+  max-width:var(--container);
+  margin:0 auto;
+  display:flex;
+  justify-content:space-between;
+  padding:26px 0;
+  border-top:1px solid rgba(244,246,248,0.08);
+  font-family:var(--font-mono);
+  font-size:11.5px;
+  color:var(--ink-faint);
+}
+.footer-bottom a:hover{color:var(--ink);}
+
+/* ===================== RESPONSIVE ===================== */
+@media (max-width:980px){
+  .pill-links{display:none;}
+  .pill-toggle{display:flex;}
+  .mobile-menu{display:flex;}
+  .about-grid{grid-template-columns:1fr;gap:40px;}
+  .stack-grid{grid-template-columns:repeat(2,1fr);}
+  .project-card{grid-template-columns:1fr;}
+  .project-visual{min-height:180px;}
+  .service-row{grid-template-columns:1fr;gap:8px;}
+  .service-tags{text-align:left;}
+}
+@media (max-width:600px){
+  .section{padding:100px 20px;}
+  .hero{padding:20px;}
+  .hero-copy{padding-bottom:60px;}
+  .stack-grid{grid-template-columns:1fr;}
+  .float-actions{right:16px;bottom:16px;}
+  .float-btn{padding:11px 16px;font-size:11.5px;}
+  .footer{padding:70px 20px 0;}
+  .footer-watermark{margin:0 -20px;}
+}
+</style>
+</head>
+<body>
+
+<!-- ===================== NAV ===================== -->
+<nav class="pill-nav" id="pillNav">
+  <a href="#hero" class="pill-logo">QA<span>.</span></a>
+  <div class="pill-links">
+    <a href="#about">About</a>
+    <a href="#stack">Stack</a>
+    <a href="#work">Work</a>
+    <a href="#services">Services</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <button class="pill-toggle" id="pillToggle" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about">About</a>
+  <a href="#stack">Stack</a>
+  <a href="#work">Work</a>
+  <a href="#services">Services</a>
+  <a href="#contact">Contact</a>
+</div>
+
+<div class="float-actions">
+  <a href="img/Muhammad_Qasim_Akram_software_engineer.pdf" class="float-btn" target="_blank" rel="noopener">Resume</a>
+  <a href="#contact" class="float-btn float-btn--solid">Hire Me</a>
+</div>
+
+<!-- ===================== HERO ===================== -->
+<header class="hero" id="hero">
+  <canvas id="heroCanvas"></canvas>
+  <div class="hero-fade"></div>
+
+  <p class="eyebrow hero-eyebrow"><span class="dot">/</span> FULL STACK DEV <span class="sep">&middot;</span> AI ENGINEER</p>
+  <p class="hero-loc">BAHAWALPUR, PAKISTAN <span class="sep">&middot;</span> OPEN TO RELOCATE</p>
+
+  <div class="hero-copy">
+    <h1 class="hero-title">
+      <span class="line">I don't ship</span>
+      <span class="line">demos. I ship</span>
+      <span class="line"><em>production.</em></span>
+    </h1>
+    <p class="hero-sub">React to Django, UI to model. I build real systems that get deployed, get used, and stay up, not projects that die on localhost.</p>
+    <div class="hero-cta">
+      <a href="#work" class="btn btn--solid">View Work</a>
+      <a href="#contact" class="btn btn--outline">Get in Touch</a>
+    </div>
+  </div>
+
+  <div class="scroll-cue"><span></span>Scroll</div>
+</header>
+
+<main>
+
+<!-- ===================== ABOUT ===================== -->
+<section class="section" id="about">
+  <p class="eyebrow"><span class="dot">/</span> ABOUT</p>
+  <h2 class="reveal-blur big-heading">Not just code.<br>Code that ships.</h2>
+
+  <div class="about-grid">
+    <div class="about-copy">
+      <p>I work across the full stack: React on the front end, Django and Node on the back end, and computer vision or LLM systems when the problem calls for it. Real-time chat over WebSockets. Object detection that helps people navigate the world. Storefronts running live on Azure. None of this is a side experiment. It's deployed, it's used, and it's sitting on GitHub right now.</p>
+      <p>EyeSpy started with one question: what if a camera could be a person's eyes? That question turned into YOLOv8, OpenCV, and real-time audio feedback running at sub-200ms latency. That's the kind of problem I go looking for.</p>
+      <p>I pick up new tech fast, break things on purpose, fix them, and ship. No tutorials sitting half-finished. Just the loop: build, break, fix, ship.</p>
+    </div>
+
+    <div class="about-stats">
+      <div class="stat">
+        <span class="stat-num" data-count="5">0</span><span class="stat-plus">+</span>
+        <span class="stat-label">Deployed Projects</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num" data-count="20">0</span><span class="stat-plus">+</span>
+        <span class="stat-label">GitHub Repos</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num" data-count="3">0</span>
+        <span class="stat-label">Tech Domains</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num" data-count="2">0</span><span class="stat-plus">+</span>
+        <span class="stat-label">Years Building</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== STACK ===================== -->
+<section class="section" id="stack">
+  <p class="eyebrow"><span class="dot">/</span> STACK</p>
+  <h2 class="reveal-blur big-heading">Tools I actually use.</h2>
+
+  <div class="stack-grid">
+    <div class="stack-col">
+      <h3>Frontend</h3>
+      <ul>
+        <li>React.js</li>
+        <li>JavaScript / TypeScript</li>
+        <li>HTML5 &amp; CSS3</li>
+        <li>Tailwind CSS</li>
+      </ul>
+    </div>
+    <div class="stack-col">
+      <h3>Backend</h3>
+      <ul>
+        <li>Node.js &amp; Express</li>
+        <li>Django &amp; Django Channels</li>
+        <li>REST APIs</li>
+        <li>WebSockets</li>
+      </ul>
+    </div>
+    <div class="stack-col">
+      <h3>Databases</h3>
+      <ul>
+        <li>PostgreSQL</li>
+        <li>MongoDB</li>
+        <li>MySQL</li>
+        <li>Redis</li>
+      </ul>
+    </div>
+    <div class="stack-col">
+      <h3>AI &amp; CV</h3>
+      <ul>
+        <li>Python</li>
+        <li>OpenCV &amp; YOLOv8</li>
+        <li>scikit-learn &amp; Pandas</li>
+        <li>Groq / LLM APIs</li>
+      </ul>
+    </div>
+    <div class="stack-col">
+      <h3>DevOps</h3>
+      <ul>
+        <li>Git &amp; GitHub</li>
+        <li>Azure &amp; Railway</li>
+        <li>Vercel &amp; Netlify</li>
+        <li>GitHub Actions CI/CD</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="learning-row">
+    <span class="learning-label">Currently sharpening</span>
+    <span class="chip">Advanced React Patterns</span>
+    <span class="chip">LLM Fine-tuning</span>
+    <span class="chip">System Design</span>
+    <span class="chip">AWS / GCP</span>
+  </div>
+</section>
+
+<!-- ===================== WORK ===================== -->
+<section class="section" id="work">
+  <p class="eyebrow"><span class="dot">/</span> SELECTED WORK</p>
+  <h2 class="reveal-blur big-heading">Five things I shipped.</h2>
+
+  <div class="project-list">
+
+    <article class="project-card mockup--chat">
+      <div class="project-visual"><div class="mockup-glow"></div></div>
+      <div class="project-info">
+        <span class="project-num">001</span>
+        <h3>ChatRoom <span class="project-tag-live">Live</span></h3>
+        <p>Real-time chat. Users register, open a room, and messages land instantly, no refresh. Built on Django Channels and WebSockets with Redis as the message broker.</p>
+        <div class="project-tags">
+          <span>React</span><span>Django</span><span>WebSocket</span><span>Redis</span>
+        </div>
+        <a href="https://chat-room-two-pi.vercel.app/" target="_blank" rel="noopener" class="project-link">Visit Live ↗</a>
+      </div>
+    </article>
+
+    <article class="project-card mockup--devchat">
+      <div class="project-visual"><div class="mockup-glow"></div></div>
+      <div class="project-info">
+        <span class="project-num">002</span>
+        <h3>DevChat <span class="project-tag-live">Live</span></h3>
+        <p>An LLM-powered developer assistant with context memory and streaming responses, wrapped in a clean React interface.</p>
+        <div class="project-tags">
+          <span>React</span><span>Node.js</span><span>Groq LLaMA</span><span>MongoDB</span>
+        </div>
+        <a href="https://dev-chat-gilt.vercel.app/" target="_blank" rel="noopener" class="project-link">Visit Live ↗</a>
+      </div>
+    </article>
+
+    <article class="project-card mockup--eyespy">
+      <div class="project-visual"><div class="mockup-glow"></div></div>
+      <div class="project-info">
+        <span class="project-num">003</span>
+        <h3>EyeSpy <span class="project-tag-live project-tag-live--code">Code</span></h3>
+        <p>Real-time object detection with audio feedback to help visually impaired users navigate. YOLOv8 on a live camera feed, sub-200ms latency.</p>
+        <div class="project-tags">
+          <span>Python</span><span>OpenCV</span><span>YOLOv8</span>
+        </div>
+        <a href="https://github.com/Qasim-Akram/EyeSpy" target="_blank" rel="noopener" class="project-link">View on GitHub ↗</a>
+      </div>
+    </article>
+
+    <article class="project-card mockup--ecom">
+      <div class="project-visual"><div class="mockup-glow"></div></div>
+      <div class="project-info">
+        <span class="project-num">004</span>
+        <h3>YOUROWN <span class="project-tag-live">Live</span></h3>
+        <p>Full e-commerce storefront with cart, JWT auth, and order tracking, deployed to Azure App Service with CI/CD through GitHub Actions.</p>
+        <div class="project-tags">
+          <span>React</span><span>Node.js</span><span>MongoDB</span><span>Azure</span>
+        </div>
+        <a href="https://qasim-ecommerce.azurewebsites.net/" target="_blank" rel="noopener" class="project-link">Visit Live ↗</a>
+      </div>
+    </article>
+
+    <article class="project-card mockup--stock">
+      <div class="project-visual"><div class="mockup-glow"></div></div>
+      <div class="project-info">
+        <span class="project-num">005</span>
+        <h3>Minimal Analysis <span class="project-tag-live project-tag-live--code">Code</span></h3>
+        <p>Stock price analysis powered by LLaMA through the Groq API. Pulls live market data, runs it through the model, surfaces insights in a single-page UI.</p>
+        <div class="project-tags">
+          <span>Express.js</span><span>Groq LLaMA</span><span>JavaScript</span>
+        </div>
+        <a href="https://github.com/Qasim-Akram/Stock-Price-Prediction" target="_blank" rel="noopener" class="project-link">View on GitHub ↗</a>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- ===================== SERVICES ===================== -->
+<section class="section" id="services">
+  <p class="eyebrow"><span class="dot">/</span> SERVICES</p>
+  <h2 class="reveal-blur big-heading">What I take on.</h2>
+
+  <div class="service-list">
+    <div class="service-row">
+      <h3>Full Stack Web Development</h3>
+      <p class="service-desc">End-to-end apps: React front end, Node or Django back end, database, auth, deployed and live.</p>
+      <span class="service-tags">React <span class="sep">&middot;</span> Node.js <span class="sep">&middot;</span> Django <span class="sep">&middot;</span> PostgreSQL</span>
+    </div>
+    <div class="service-row">
+      <h3>REST API Design &amp; Development</h3>
+      <p class="service-desc">Clean, structured APIs that are easy to consume and easy to scale, with real error handling.</p>
+      <span class="service-tags">Express <span class="sep">&middot;</span> Django REST <span class="sep">&middot;</span> JWT <span class="sep">&middot;</span> Postman</span>
+    </div>
+    <div class="service-row">
+      <h3>Real-Time Features</h3>
+      <p class="service-desc">Live chat, instant notifications, real-time updates, built with WebSockets and Redis.</p>
+      <span class="service-tags">WebSockets <span class="sep">&middot;</span> Django Channels <span class="sep">&middot;</span> Redis</span>
+    </div>
+    <div class="service-row">
+      <h3>AI &amp; LLM Integration</h3>
+      <p class="service-desc">Real AI built into your product: chatbots, intelligent search, LLM-powered features, integrated into your actual stack.</p>
+      <span class="service-tags">Python <span class="sep">&middot;</span> Groq <span class="sep">&middot;</span> LLM APIs <span class="sep">&middot;</span> OpenCV</span>
+    </div>
+    <div class="service-row">
+      <h3>Deployment &amp; CI/CD Setup</h3>
+      <p class="service-desc">Get your app off localhost. Hosting, environment configs, and pipelines so every push to main goes live.</p>
+      <span class="service-tags">Azure <span class="sep">&middot;</span> Railway <span class="sep">&middot;</span> Vercel <span class="sep">&middot;</span> GitHub Actions</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FREELANCE ===================== -->
+<section class="section section--freelance" id="freelance">
+  <p class="eyebrow"><span class="dot">/</span> FIVERR</p>
+  <blockquote class="reveal-blur freelance-quote">
+    Clients come to me with something broken or missing. A React bug stalling a launch, an auth flow that never got finished, an API integration that falls over under real traffic. I fix it and move to the next one.
+  </blockquote>
+</section>
+
+<!-- ===================== CONTACT ===================== -->
+<section class="section" id="contact">
+  <p class="eyebrow"><span class="dot">/</span> CONTACT</p>
+  <h2 class="reveal-blur big-heading contact-heading">Let's build something<br>that ships.</h2>
+  <p class="contact-sub">Open to internships, freelance work, and good problems. If you have one, send it over.</p>
+
+  <div class="contact-links">
+    <a href="mailto:qasimakram@example.com" class="contact-email">qasimakram@example.com</a>
+    <div class="social-row">
+      <a href="https://linkedin.com/in/qasimakram" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <a href="https://github.com/Qasim-Akram" target="_blank" rel="noopener">GitHub ↗</a>
+      <a href="https://instagram.com/m_qasimakram" target="_blank" rel="noopener">Instagram ↗</a>
+      <a href="https://x.com/Qasim_Akram46" target="_blank" rel="noopener">X / Twitter ↗</a>
+      <a href="https://medium.com/@qasimakram" target="_blank" rel="noopener">Medium ↗</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="footer">
+  <div class="footer-top">
+    <div class="footer-col">
+      <span class="footer-label">/ Quick links</span>
+      <div class="footer-pills">
+        <a href="#hero">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#work">Work</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <span class="footer-label">/ Contact</span>
+      <a href="mailto:qasimakram@example.com" class="footer-email">qasimakram@example.com</a>
+    </div>
+  </div>
+  <div class="footer-watermark" aria-hidden="true">QASIM AKRAM</div>
+  <div class="footer-bottom">
+    <span>&copy; 2026 Muhammad Qasim Akram</span>
+    <a href="#hero">Back to top ↑</a>
+  </div>
+</footer>
+
+<!-- ===================== SCRIPTS ===================== -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script type="module">
+import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js";
+
+gsap.registerPlugin(ScrollTrigger);
+
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* ===================== NAV ===================== */
+const pillToggle = document.getElementById('pillToggle');
+const mobileMenu = document.getElementById('mobileMenu');
+
+pillToggle.addEventListener('click', () => {
+  const open = mobileMenu.classList.toggle('open');
+  pillToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+});
+mobileMenu.querySelectorAll('a').forEach((a) => {
+  a.addEventListener('click', () => {
+    mobileMenu.classList.remove('open');
+    pillToggle.setAttribute('aria-expanded', 'false');
+  });
+});
+
+const navLinks = document.querySelectorAll('.pill-links a, .mobile-menu a');
+const trackedSections = document.querySelectorAll('main section, .hero');
+const sectionObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      const id = entry.target.id;
+      navLinks.forEach((link) => {
+        link.classList.toggle('active', link.getAttribute('href') === '#' + id);
+      });
+    });
+  },
+  { rootMargin: '-45% 0px -50% 0px' }
+);
+trackedSections.forEach((s) => sectionObserver.observe(s));
+
+/* ===================== SCROLL REVEALS ===================== */
+document.querySelectorAll('.reveal-blur').forEach((el) => {
+  gsap.to(el, {
+    filter: 'blur(0px)',
+    opacity: 1,
+    y: 0,
+    duration: 1.1,
+    ease: 'power3.out',
+    scrollTrigger: { trigger: el, start: 'top 85%' },
+  });
+});
+
+gsap.utils.toArray('.project-card').forEach((card) => {
+  gsap.fromTo(
+    card,
+    { opacity: 0, y: 36 },
+    {
+      opacity: 1,
+      y: 0,
+      duration: 0.9,
+      ease: 'power3.out',
+      scrollTrigger: { trigger: card, start: 'top 88%' },
+    }
+  );
+});
+
+gsap.utils.toArray('.service-row').forEach((row) => {
+  gsap.fromTo(
+    row,
+    { opacity: 0, y: 20 },
+    {
+      opacity: 1,
+      y: 0,
+      duration: 0.7,
+      ease: 'power3.out',
+      scrollTrigger: { trigger: row, start: 'top 92%' },
+    }
+  );
+});
+
+gsap.fromTo(
+  '.footer-watermark',
+  { opacity: 0, y: 30 },
+  {
+    opacity: 1,
+    y: 0,
+    duration: 1.2,
+    ease: 'power3.out',
+    scrollTrigger: { trigger: '.footer-watermark', start: 'top 95%' },
+  }
+);
+
+/* ===================== STAT COUNT-UP ===================== */
+document.querySelectorAll('.stat-num').forEach((el) => {
+  const target = parseInt(el.dataset.count, 10);
+  ScrollTrigger.create({
+    trigger: el,
+    start: 'top 90%',
+    once: true,
+    onEnter: () => {
+      const obj = { val: 0 };
+      gsap.to(obj, {
+        val: target,
+        duration: 1.4,
+        ease: 'power2.out',
+        onUpdate: () => {
+          el.textContent = Math.floor(obj.val);
+        },
+      });
+    },
+  });
+});
+
+/* ===================== HERO LOAD-IN ===================== */
+gsap.set('.pill-nav', { opacity: 0 });
+gsap.set(['.hero-eyebrow', '.hero-loc', '.hero-sub', '.hero-cta', '.scroll-cue'], { opacity: 0, y: 14 });
+gsap.set('.hero-title .line', { opacity: 0, y: 30 });
+
+const heroTl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+heroTl
+  .to('.pill-nav', { opacity: 1, duration: 0.7 }, 0.1)
+  .to('.hero-eyebrow', { opacity: 1, y: 0, duration: 0.6 }, 0.3)
+  .to('.hero-loc', { opacity: 1, y: 0, duration: 0.6 }, 0.4)
+  .to('.hero-title .line', { opacity: 1, y: 0, duration: 0.9, stagger: 0.12 }, 0.45)
+  .to('.hero-sub', { opacity: 1, y: 0, duration: 0.7 }, 0.9)
+  .to('.hero-cta', { opacity: 1, y: 0, duration: 0.7 }, 1.0)
+  .to('.scroll-cue', { opacity: 1, y: 0, duration: 0.6 }, 1.3);
+
+/* ===================== HERO 3D SCENE ===================== */
+/* A rotating node lattice: vertices as glowing nodes, edges as wireframe lines,
+   small light packets traveling the edges. A network/system-architecture shape,
+   built for a developer, not a decorative creature. */
+function initHeroScene() {
+  const canvas = document.getElementById('heroCanvas');
+  if (!canvas) return;
+
+  const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.75));
+
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(45, 1, 0.1, 100);
+  camera.position.set(0, 0, 7);
+
+  const group = new THREE.Group();
+  scene.add(group);
+
+  function setGroupOffset() {
+    group.position.x = window.innerWidth < 760 ? 0 : 1.3;
+    group.position.y = window.innerWidth < 760 ? 0.6 : 0.1;
+  }
+  setGroupOffset();
+
+  const coreGeo = new THREE.IcosahedronGeometry(1.7, 1);
+  const coreEdges = new THREE.EdgesGeometry(coreGeo);
+  const coreLineMat = new THREE.LineBasicMaterial({ color: 0x4de8e0, transparent: true, opacity: 0.45 });
+  const lattice = new THREE.LineSegments(coreEdges, coreLineMat);
+  group.add(lattice);
+
+  const shellGeo = new THREE.IcosahedronGeometry(2.35, 1);
+  const shellEdges = new THREE.EdgesGeometry(shellGeo);
+  const shellLineMat = new THREE.LineBasicMaterial({ color: 0xffb454, transparent: true, opacity: 0.12 });
+  const shell = new THREE.LineSegments(shellEdges, shellLineMat);
+  group.add(shell);
+
+  // unique vertices -> nodes
+  const posAttr = coreGeo.getAttribute('position');
+  const seen = new Set();
+  const uniqueVerts = [];
+  for (let i = 0; i < posAttr.count; i++) {
+    const v = new THREE.Vector3().fromBufferAttribute(posAttr, i);
+    const key = v.x.toFixed(3) + ',' + v.y.toFixed(3) + ',' + v.z.toFixed(3);
+    if (!seen.has(key)) {
+      seen.add(key);
+      uniqueVerts.push(v);
+    }
+  }
+  const nodeGeo = new THREE.SphereGeometry(0.035, 8, 8);
+  uniqueVerts.forEach((v, i) => {
+    const color = i % 2 === 0 ? 0xffb454 : 0x4de8e0;
+    const mat = new THREE.MeshBasicMaterial({ color });
+    const node = new THREE.Mesh(nodeGeo, mat);
+    node.position.copy(v);
+    group.add(node);
+  });
+
+  // edge list (pairs) for traveling pulses
+  const edgePos = coreEdges.getAttribute('position');
+  const edgeList = [];
+  for (let i = 0; i < edgePos.count; i += 2) {
+    edgeList.push([
+      new THREE.Vector3().fromBufferAttribute(edgePos, i),
+      new THREE.Vector3().fromBufferAttribute(edgePos, i + 1),
+    ]);
+  }
+
+  const PULSE_COUNT = reduceMotion ? 0 : 22;
+  const pulseGeo = new THREE.SphereGeometry(0.045, 6, 6);
+  const pulses = [];
+  for (let i = 0; i < PULSE_COUNT; i++) {
+    const edge = edgeList[Math.floor(Math.random() * edgeList.length)];
+    const color = Math.random() > 0.5 ? 0xffb454 : 0x4de8e0;
+    const mat = new THREE.MeshBasicMaterial({ color, transparent: true, opacity: 0.95 });
+    const mesh = new THREE.Mesh(pulseGeo, mat);
+    group.add(mesh);
+    pulses.push({ mesh, edge, speed: 0.18 + Math.random() * 0.3, t: Math.random() });
+  }
+
+  function resize() {
+    const w = canvas.clientWidth || window.innerWidth;
+    const h = canvas.clientHeight || window.innerHeight;
+    renderer.setSize(w, h, false);
+    camera.aspect = w / h;
+    camera.updateProjectionMatrix();
+    setGroupOffset();
+  }
+  window.addEventListener('resize', resize);
+  resize();
+
+  let targetTiltX = 0;
+  let targetTiltY = 0;
+  if (!reduceMotion) {
+    window.addEventListener('pointermove', (e) => {
+      const nx = (e.clientX / window.innerWidth) * 2 - 1;
+      const ny = (e.clientY / window.innerHeight) * 2 - 1;
+      targetTiltY = nx * 0.22;
+      targetTiltX = ny * 0.14;
+    });
+  }
+
+  let isVisible = true;
+  document.addEventListener('visibilitychange', () => {
+    isVisible = !document.hidden;
+  });
+
+  const clock = new THREE.Clock();
+  const baseSpeed = reduceMotion ? 0.02 : 0.12;
+  let autoAngle = 0;
+  let curTiltX = 0;
+  let curTiltY = 0;
+
+  function animate() {
+    requestAnimationFrame(animate);
+    if (!isVisible) return;
+    const dt = Math.min(clock.getDelta(), 0.05);
+
+    autoAngle += dt * baseSpeed;
+    curTiltX += (targetTiltX - curTiltX) * 0.04;
+    curTiltY += (targetTiltY - curTiltY) * 0.04;
+
+    group.rotation.y = autoAngle + curTiltY;
+    group.rotation.x = curTiltX;
+    shell.rotation.y = -autoAngle * 0.4;
+    shell.rotation.x = curTiltX * 0.5;
+
+    if (!reduceMotion) {
+      pulses.forEach((p) => {
+        p.t += dt * p.speed * 0.3;
+        if (p.t > 1) {
+          p.t = 0;
+          p.edge = edgeList[Math.floor(Math.random() * edgeList.length)];
+        }
+        p.mesh.position.lerpVectors(p.edge[0], p.edge[1], p.t);
+      });
+    }
+
+    renderer.render(scene, camera);
+  }
+  animate();
+}
+
+initHeroScene();
+</script>
+</body>
+</html>
