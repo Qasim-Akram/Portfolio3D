@@ -94,6 +94,7 @@ document.querySelectorAll(".sr,.sr-l,.sr-r").forEach((el) => io.observe(el));
 
 // ── PHOTO FLIP (scroll-locked on desktop + touch on mobile) ──
 // ── PHOTO FLIP (scroll-locked on desktop + touch on mobile) ──
+// ── PHOTO FLIP ──
 const flipCard = document.getElementById("flipCard");
 const heroWrap = document.querySelector(".hero-photo-wrap");
 
@@ -110,6 +111,31 @@ function isHeroCentered() {
   return rect.top < window.innerHeight / 2 && rect.bottom > window.innerHeight / 2;
 }
 
+// Lock/unlock body scroll using touch-action + overflow
+function lockScroll() {
+  document.body.style.overflow = "hidden";
+  document.body.style.touchAction = "none";
+}
+
+function unlockScroll() {
+  document.body.style.overflow = "";
+  document.body.style.touchAction = "";
+}
+
+// Watch hero visibility and lock/unlock accordingly
+const heroObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      // Only lock if flip isn't complete
+      if (rotation < 180) lockScroll();
+    } else {
+      unlockScroll();
+    }
+  });
+}, { threshold: 0.5 });
+
+heroObserver.observe(heroWrap);
+
 // ── DESKTOP: wheel ──
 window.addEventListener("wheel", (e) => {
   if (!isHeroCentered()) return;
@@ -117,12 +143,14 @@ window.addEventListener("wheel", (e) => {
   if (e.deltaY > 0 && rotation < 180) {
     e.preventDefault();
     setFlip(rotation + 12);
+    if (rotation >= 180) unlockScroll();
     return;
   }
 
   if (e.deltaY < 0 && rotation > 0) {
     e.preventDefault();
     setFlip(rotation - 12);
+    if (rotation > 0) lockScroll();
     return;
   }
 }, { passive: false });
@@ -137,21 +165,33 @@ document.addEventListener("touchmove", (e) => {
 
   const deltaY = touchStartY - e.touches[0].clientY;
 
-  if (deltaY > 5 && rotation < 180) {
+  // Swipe down → flip forward
+  if (deltaY > 3 && rotation < 180) {
     e.preventDefault();
     setFlip(rotation + 3);
-    touchStartY = e.touches[0].clientY; // reset each move for smooth control
+    touchStartY = e.touches[0].clientY;
+
+    // Flip complete → unlock scroll
+    if (rotation >= 180) {
+      unlockScroll();
+    }
     return;
   }
 
-  if (deltaY < -5 && rotation > 0) {
+  // Swipe up → flip back
+  if (deltaY < -3 && rotation > 0) {
     e.preventDefault();
     setFlip(rotation - 3);
     touchStartY = e.touches[0].clientY;
+
+    // Re-lock if flipping back
+    if (rotation < 180) {
+      lockScroll();
+    }
     return;
   }
 
-}, { passive: false }); // ← must be false on document, not window
+}, { passive: false });
 
 document.addEventListener("touchend", () => {
   touchStartY = 0;
