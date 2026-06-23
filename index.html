@@ -15,8 +15,14 @@
     href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Syne:wght@400;600;700;800&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+
   <link rel="icon" type="img/svg+xml" href="img/favicon.svg" />
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script>
+    emailjs.init("yCgwIWXoWe_klsqNy");
+  </script>
 </head>
+
 
 <body>
 
@@ -408,10 +414,23 @@
               class="c-link"><span>Medium</span><span>↗</span></a>
           </div>
           <div>
-            <div class="fg"><input type="text" placeholder="Your Name" /></div>
-            <div class="fg"><input type="email" placeholder="Email Address" /></div>
-            <div class="fg"><textarea placeholder="Your Message"></textarea></div>
-            <button class="btn-send">Send Message →</button>
+            <div>
+              <div class="fg">
+                <input type="text" id="from_name" placeholder="Your Name" required />
+              </div>
+              <div class="fg">
+                <input type="email" id="from_email" placeholder="Email Address" required />
+              </div>
+              <div class="fg">
+                <textarea id="message" placeholder="Your Message"></textarea>
+              </div>
+              <button type="button" class="btn-send" id="sendBtn" onclick="handleSubmit()">
+                <span id="btnText">Send Message →</span>
+                <span id="btnBar"></span>
+              </button>
+            </div>
+
+            <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
           </div>
         </div>
       </div>

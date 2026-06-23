@@ -1,4 +1,4 @@
-// ── PAGE LOADER ──
+//PAGE LOADER 
 const loader = document.getElementById("loader");
 window.addEventListener("load", () => {
   setTimeout(() => {
@@ -7,7 +7,6 @@ window.addEventListener("load", () => {
   }, 900);
 });
 
-// ── CURSOR ──
 const cur = document.getElementById("cur");
 let cx = -200,
   cy = -200;
@@ -29,7 +28,7 @@ document.querySelectorAll("input,textarea").forEach((el) => {
 });
 if ("ontouchstart" in window) cur.style.display = "none";
 
-// ── NAVBAR ──
+
 window.addEventListener(
   "scroll",
   () => {
@@ -40,7 +39,6 @@ window.addEventListener(
   { passive: true },
 );
 
-// ── MOBILE MENU (fixed) ──
 const navHam = document.getElementById("navHam");
 const mobileMenu = document.getElementById("mobileMenu");
 navHam.addEventListener("click", (e) => {
@@ -48,14 +46,14 @@ navHam.addEventListener("click", (e) => {
   const isOpen = mobileMenu.classList.toggle("open");
   navHam.innerHTML = isOpen ? "&#10005;" : "&#9776;";
 });
-// Close on link click
+
 mobileMenu.querySelectorAll("a").forEach((a) => {
   a.addEventListener("click", () => {
     mobileMenu.classList.remove("open");
     navHam.innerHTML = "&#9776;";
   });
 });
-// Close on outside click
+
 document.addEventListener("click", (e) => {
   if (!mobileMenu.contains(e.target) && e.target !== navHam) {
     mobileMenu.classList.remove("open");
@@ -63,7 +61,7 @@ document.addEventListener("click", (e) => {
   }
 });
 
-// ── ACTIVE NAV LINKS ──
+
 const navAs = document.querySelectorAll(".nav-links a, .nav-mobile-menu a");
 window.addEventListener(
   "scroll",
@@ -79,7 +77,7 @@ window.addEventListener(
   { passive: true },
 );
 
-// ── SCROLL REVEAL ──
+
 const io = new IntersectionObserver(
   (entries) => {
     entries.forEach((e) => {
@@ -93,7 +91,7 @@ const io = new IntersectionObserver(
 );
 document.querySelectorAll(".sr,.sr-l,.sr-r").forEach((el) => io.observe(el));
 
-// ── PHOTO FLIP (scroll-driven 3D) ──
+
 const flipCard = document.getElementById("flipCard");
 const hero = document.querySelector(".hero-photo-wrap");
 
@@ -104,62 +102,42 @@ window.addEventListener(
   "wheel",
   (e) => {
     const rect = hero.getBoundingClientRect();
-
-    // Check if card is near the center of viewport
     const cardCentered =
       rect.top < window.innerHeight / 2 &&
       rect.bottom > window.innerHeight / 2;
 
-
     if (!cardCentered) return;
 
-
-    // Scroll down -> flip front to back
     if (e.deltaY > 0 && rotation < 180) {
-
       e.preventDefault();
-
       isFlipping = true;
-
       rotation += 10;
-
       if (rotation > 180) {
         rotation = 180;
       }
-
       flipCard.style.transform =
         `rotateY(${rotation}deg)`;
-
       return;
     }
 
-
-    // Scroll up -> flip back
     if (e.deltaY < 0 && rotation > 0) {
-
       e.preventDefault();
-
       isFlipping = true;
-
       rotation -= 10;
-
       if (rotation < 0) {
         rotation = 0;
       }
-
       flipCard.style.transform =
         `rotateY(${rotation}deg)`;
-
       return;
     }
 
-
     isFlipping = false;
-
   },
   { passive: false }
 );
-// ── BG WORD cycling on scroll ──
+
+
 const bgWord = document.getElementById("bgWord");
 const words = ["DEVELOPER", "ENGINEER", "BUILDER", "CREATOR", "SHIPPER"];
 let lastW = 0;
@@ -182,7 +160,7 @@ window.addEventListener(
   { passive: true },
 );
 
-// ── STAT COUNTER ──
+
 document.querySelectorAll(".sn").forEach((el) => {
   const raw = el.textContent.trim();
   const plus = raw.includes("+");
@@ -207,7 +185,7 @@ document.querySelectorAll(".sn").forEach((el) => {
   ob.observe(el);
 });
 
-// ── PROJECT CARD TILT ──
+
 document.querySelectorAll(".proj-card").forEach((card) => {
   card.addEventListener("mousemove", (e) => {
     const r = card.getBoundingClientRect();
@@ -219,3 +197,53 @@ document.querySelectorAll(".proj-card").forEach((card) => {
     card.style.transform = "";
   });
 });
+
+
+
+  emailjs.init("yCgwIWXoWe_klsqNy");
+
+  function handleSubmit() {
+    var name = document.getElementById("from_name").value;
+    var email = document.getElementById("from_email").value;
+    var message = document.getElementById("message").value;
+    var btn = document.getElementById("sendBtn");
+    var btnText = document.getElementById("btnText");
+    var bar = document.getElementById("btnBar");
+
+    if (!name || !email || !message) return;
+
+    btn.disabled = true;
+    btnText.textContent = "Sending...";
+    bar.classList.remove("sending");
+    void bar.offsetWidth;
+    bar.classList.add("sending");
+
+    emailjs.send("portfolio_contack", "template_mkyegym", {
+      from_name: name,
+      from_email: email,
+      message: message,
+    })
+    .then(function () {
+      bar.style.transition = "none";
+      bar.style.width = "100%";
+      btn.classList.add("sent");
+      btnText.textContent = "Sent!";
+
+      setTimeout(function () {
+        btnText.textContent = "Send Message →";
+        bar.style.width = "0%";
+        btn.classList.remove("sent");
+        btn.disabled = false;
+
+        document.getElementById("from_name").value = "";
+        document.getElementById("from_email").value = "";
+        document.getElementById("message").value = "";
+      }, 2000);
+    })
+    .catch(function () {
+      bar.style.transition = "none";
+      bar.style.width = "0%";
+      btnText.textContent = "Send Message →";
+      btn.disabled = false;
+    });
+  }
