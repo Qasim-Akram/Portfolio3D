@@ -600,7 +600,7 @@ nav.blur {
   background: var(--black);
   color: #fff;
   border: none;
-  border-radius: 100px;
+  border-radius: 10px;
   padding: 14px 34px;
   font-size: 0.84rem;
   font-weight: 700;
@@ -622,7 +622,7 @@ nav.blur {
   background: transparent;
   color: var(--black);
   border: 1.5px solid rgba(0, 0, 0, 0.15);
-  border-radius: 100px;
+  border-radius: 10px;
   padding: 13px 34px;
   font-size: 0.84rem;
   font-weight: 500;
