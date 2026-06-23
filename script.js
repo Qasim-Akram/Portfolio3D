@@ -88,7 +88,7 @@ const io = new IntersectionObserver(
 );
 document.querySelectorAll(".sr,.sr-l,.sr-r").forEach((el) => io.observe(el));
 
-// ── PHOTO FLIP ──
+
 const flipCard = document.getElementById("flipCard");
 const heroWrap = document.querySelector(".hero-photo-wrap");
 
@@ -139,7 +139,7 @@ window.addEventListener(
   { passive: false },
 );
 
-// ── MOBILE: touch ──
+// MOBILE
 document.addEventListener(
   "touchstart",
   (e) => {
@@ -155,20 +155,19 @@ document.addEventListener(
 
     const deltaY = touchStartY - e.touches[0].clientY;
 
-    // Swipe down and flip not complete → intercept
     if (deltaY > 3 && rotation < 180) {
-      lockScroll(); // lock NOW (mid-gesture)
+      lockScroll(); 
       e.preventDefault();
       setFlip(rotation + 3);
       touchStartY = e.touches[0].clientY;
 
       if (rotation >= 180) {
-        unlockScroll(); // flip done, free scroll
+        unlockScroll(); 
       }
       return;
     }
 
-    // Swipe up and flip not at 0 → intercept
+    
     if (deltaY < -3 && rotation > 0) {
       lockScroll();
       e.preventDefault();
@@ -181,7 +180,6 @@ document.addEventListener(
       return;
     }
 
-    // Flip is complete or not started → free scroll
     unlockScroll();
   },
   { passive: false },
@@ -189,7 +187,6 @@ document.addEventListener(
 
 document.addEventListener("touchend", () => {
   touchStartY = 0;
-  // Safety: always unlock on finger lift
   unlockScroll();
 });
 
