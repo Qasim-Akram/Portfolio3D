@@ -92,51 +92,82 @@ const io = new IntersectionObserver(
 document.querySelectorAll(".sr,.sr-l,.sr-r").forEach((el) => io.observe(el));
 
 
+// ── PHOTO FLIP (scroll-locked on desktop + touch on mobile) ──
 const flipCard = document.getElementById("flipCard");
-const hero = document.querySelector(".hero-photo-wrap");
+const heroWrap = document.querySelector(".hero-photo-wrap");
 
 let rotation = 0;
-let isFlipping = false;
+let flipping = false;
 
-window.addEventListener(
-  "wheel",
-  (e) => {
-    const rect = hero.getBoundingClientRect();
-    const cardCentered =
-      rect.top < window.innerHeight / 2 &&
-      rect.bottom > window.innerHeight / 2;
+function setFlip(deg) {
+  rotation = Math.min(180, Math.max(0, deg));
+  flipCard.style.transform = `rotateY(${rotation}deg)`;
+}
 
-    if (!cardCentered) return;
+// ── DESKTOP: wheel ──
+window.addEventListener("wheel", (e) => {
+  const rect = heroWrap.getBoundingClientRect();
+  const centered = rect.top < window.innerHeight / 2 && rect.bottom > window.innerHeight / 2;
 
-    if (e.deltaY > 0 && rotation < 180) {
-      e.preventDefault();
-      isFlipping = true;
-      rotation += 10;
-      if (rotation > 180) {
-        rotation = 180;
-      }
-      flipCard.style.transform =
-        `rotateY(${rotation}deg)`;
-      return;
-    }
+  if (!centered) return;
 
-    if (e.deltaY < 0 && rotation > 0) {
-      e.preventDefault();
-      isFlipping = true;
-      rotation -= 10;
-      if (rotation < 0) {
-        rotation = 0;
-      }
-      flipCard.style.transform =
-        `rotateY(${rotation}deg)`;
-      return;
-    }
+  // flip not done going down → lock scroll
+  if (e.deltaY > 0 && rotation < 180) {
+    e.preventDefault();
+    setFlip(rotation + 12);
+    return;
+  }
 
-    isFlipping = false;
-  },
-  { passive: false }
-);
+  // flip not done going up → lock scroll
+  if (e.deltaY < 0 && rotation > 0) {
+    e.preventDefault();
+    setFlip(rotation - 12);
+    return;
+  }
 
+  // flip complete → let page scroll normally
+}, { passive: false });
+
+// ── MOBILE: touch ──
+let touchStartY = 0;
+let touchLocked = false;
+
+window.addEventListener("touchstart", (e) => {
+  touchStartY = e.touches[0].clientY;
+  touchLocked = false;
+}, { passive: true });
+
+window.addEventListener("touchmove", (e) => {
+  const rect = heroWrap.getBoundingClientRect();
+  const centered = rect.top < window.innerHeight / 2 && rect.bottom > window.innerHeight / 2;
+
+  if (!centered) return;
+
+  const deltaY = touchStartY - e.touches[0].clientY;
+
+  // swipe down → flip forward
+  if (deltaY > 0 && rotation < 180) {
+    e.preventDefault();
+    touchLocked = true;
+    setFlip(rotation + 4);
+    return;
+  }
+
+  // swipe up → flip back
+  if (deltaY < 0 && rotation > 0) {
+    e.preventDefault();
+    touchLocked = true;
+    setFlip(rotation - 4);
+    return;
+  }
+
+  touchLocked = false;
+}, { passive: false });
+
+window.addEventListener("touchend", () => {
+  touchStartY = 0;
+  touchLocked = false;
+});
 
 const bgWord = document.getElementById("bgWord");
 const words = ["DEVELOPER", "ENGINEER", "BUILDER", "CREATOR", "SHIPPER"];
