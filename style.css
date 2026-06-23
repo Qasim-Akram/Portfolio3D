@@ -403,7 +403,7 @@ nav.blur {
   width: clamp(230px, 24vw, 380px);
   position: relative;
   z-index: 2;
-  perspective: 1400px;
+  perspective: 1200px;
   flex-shrink: 0;
 }
 .flip-card {
@@ -412,6 +412,7 @@ nav.blur {
   position: relative;
   transform-style: preserve-3d;
   will-change: transform;
+  transition: transform 0.05s linear;
   /* JS controls rotation */
 }
 .flip-front,
@@ -916,6 +917,7 @@ nav.blur {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 18px;
+ margin-bottom: 40px;
 }
 .proj-card {
   background: var(--bg2);

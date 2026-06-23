@@ -95,38 +95,70 @@ document.querySelectorAll(".sr,.sr-l,.sr-r").forEach((el) => io.observe(el));
 
 // ── PHOTO FLIP (scroll-driven 3D) ──
 const flipCard = document.getElementById("flipCard");
-const flipCue = document.getElementById("flipCue");
-let curAngle = 0,
-  tgtAngle = 0,
-  rafId = null;
+const hero = document.querySelector(".hero-photo-wrap");
+
+let rotation = 0;
+let isFlipping = false;
 
 window.addEventListener(
-  "scroll",
-  () => {
-    const hero = document.getElementById("hero");
+  "wheel",
+  (e) => {
     const rect = hero.getBoundingClientRect();
-    const prog = Math.max(
-      0,
-      Math.min(1, -rect.top / (hero.offsetHeight * 0.55)),
-    );
-    tgtAngle = prog * 180;
-    if (flipCue) flipCue.style.opacity = prog > 0.25 ? "0" : "1";
-    if (!rafId) rafId = requestAnimationFrame(doFlip);
+
+    // Check if card is near the center of viewport
+    const cardCentered =
+      rect.top < window.innerHeight / 2 &&
+      rect.bottom > window.innerHeight / 2;
+
+
+    if (!cardCentered) return;
+
+
+    // Scroll down -> flip front to back
+    if (e.deltaY > 0 && rotation < 180) {
+
+      e.preventDefault();
+
+      isFlipping = true;
+
+      rotation += 10;
+
+      if (rotation > 180) {
+        rotation = 180;
+      }
+
+      flipCard.style.transform =
+        `rotateY(${rotation}deg)`;
+
+      return;
+    }
+
+
+    // Scroll up -> flip back
+    if (e.deltaY < 0 && rotation > 0) {
+
+      e.preventDefault();
+
+      isFlipping = true;
+
+      rotation -= 10;
+
+      if (rotation < 0) {
+        rotation = 0;
+      }
+
+      flipCard.style.transform =
+        `rotateY(${rotation}deg)`;
+
+      return;
+    }
+
+
+    isFlipping = false;
+
   },
-  { passive: true },
+  { passive: false }
 );
-
-function doFlip() {
-  curAngle += (tgtAngle - curAngle) * 0.11;
-  flipCard.style.transform = `rotateY(${curAngle}deg)`;
-  if (Math.abs(curAngle - tgtAngle) > 0.15) {
-    rafId = requestAnimationFrame(doFlip);
-  } else {
-    flipCard.style.transform = `rotateY(${tgtAngle}deg)`;
-    rafId = null;
-  }
-}
-
 // ── BG WORD cycling on scroll ──
 const bgWord = document.getElementById("bgWord");
 const words = ["DEVELOPER", "ENGINEER", "BUILDER", "CREATOR", "SHIPPER"];
