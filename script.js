@@ -1,4 +1,4 @@
-//PAGE LOADER 
+//PAGE LOADER
 const loader = document.getElementById("loader");
 window.addEventListener("load", () => {
   setTimeout(() => {
@@ -27,7 +27,6 @@ document.querySelectorAll("input,textarea").forEach((el) => {
   el.addEventListener("mouseleave", () => cur.classList.remove("txt"));
 });
 if ("ontouchstart" in window) cur.style.display = "none";
-
 
 window.addEventListener(
   "scroll",
@@ -61,7 +60,6 @@ document.addEventListener("click", (e) => {
   }
 });
 
-
 const navAs = document.querySelectorAll(".nav-links a, .nav-mobile-menu a");
 window.addEventListener(
   "scroll",
@@ -77,7 +75,6 @@ window.addEventListener(
   { passive: true },
 );
 
-
 const io = new IntersectionObserver(
   (entries) => {
     entries.forEach((e) => {
@@ -91,9 +88,6 @@ const io = new IntersectionObserver(
 );
 document.querySelectorAll(".sr,.sr-l,.sr-r").forEach((el) => io.observe(el));
 
-
-// ── PHOTO FLIP (scroll-locked on desktop + touch on mobile) ──
-// ── PHOTO FLIP (scroll-locked on desktop + touch on mobile) ──
 // ── PHOTO FLIP ──
 const flipCard = document.getElementById("flipCard");
 const heroWrap = document.querySelector(".hero-photo-wrap");
@@ -108,10 +102,11 @@ function setFlip(deg) {
 
 function isHeroCentered() {
   const rect = heroWrap.getBoundingClientRect();
-  return rect.top < window.innerHeight / 2 && rect.bottom > window.innerHeight / 2;
+  return (
+    rect.top < window.innerHeight / 2 && rect.bottom > window.innerHeight / 2
+  );
 }
 
-// Lock/unlock body scroll using touch-action + overflow
 function lockScroll() {
   document.body.style.overflow = "hidden";
   document.body.style.touchAction = "none";
@@ -122,101 +117,102 @@ function unlockScroll() {
   document.body.style.touchAction = "";
 }
 
-// Watch hero visibility and lock/unlock accordingly
-const heroObserver = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      // Only lock if flip isn't complete
-      if (rotation < 180) lockScroll();
-    } else {
-      unlockScroll();
-    }
-  });
-}, { threshold: 0.5 });
-
-heroObserver.observe(heroWrap);
-
 // ── DESKTOP: wheel ──
-window.addEventListener("wheel", (e) => {
-  if (!isHeroCentered()) return;
+window.addEventListener(
+  "wheel",
+  (e) => {
+    if (!isHeroCentered()) return;
 
-  if (e.deltaY > 0 && rotation < 180) {
-    e.preventDefault();
-    setFlip(rotation + 12);
-    if (rotation >= 180) unlockScroll();
-    return;
-  }
+    if (e.deltaY > 0 && rotation < 180) {
+      e.preventDefault();
+      setFlip(rotation + 12);
+      if (rotation >= 180) unlockScroll();
+      return;
+    }
 
-  if (e.deltaY < 0 && rotation > 0) {
-    e.preventDefault();
-    setFlip(rotation - 12);
-    if (rotation > 0) lockScroll();
-    return;
-  }
-}, { passive: false });
+    if (e.deltaY < 0 && rotation > 0) {
+      e.preventDefault();
+      setFlip(rotation - 12);
+      return;
+    }
+  },
+  { passive: false },
+);
 
 // ── MOBILE: touch ──
-document.addEventListener("touchstart", (e) => {
-  touchStartY = e.touches[0].clientY;
-}, { passive: true });
-
-document.addEventListener("touchmove", (e) => {
-  if (!isHeroCentered()) return;
-
-  const deltaY = touchStartY - e.touches[0].clientY;
-
-  // Swipe down → flip forward
-  if (deltaY > 3 && rotation < 180) {
-    e.preventDefault();
-    setFlip(rotation + 3);
+document.addEventListener(
+  "touchstart",
+  (e) => {
     touchStartY = e.touches[0].clientY;
+  },
+  { passive: true },
+);
 
-    // Flip complete → unlock scroll
-    if (rotation >= 180) {
-      unlockScroll();
+document.addEventListener(
+  "touchmove",
+  (e) => {
+    if (!isHeroCentered()) return;
+
+    const deltaY = touchStartY - e.touches[0].clientY;
+
+    // Swipe down and flip not complete → intercept
+    if (deltaY > 3 && rotation < 180) {
+      lockScroll(); // lock NOW (mid-gesture)
+      e.preventDefault();
+      setFlip(rotation + 3);
+      touchStartY = e.touches[0].clientY;
+
+      if (rotation >= 180) {
+        unlockScroll(); // flip done, free scroll
+      }
+      return;
     }
-    return;
-  }
 
-  // Swipe up → flip back
-  if (deltaY < -3 && rotation > 0) {
-    e.preventDefault();
-    setFlip(rotation - 3);
-    touchStartY = e.touches[0].clientY;
-
-    // Re-lock if flipping back
-    if (rotation < 180) {
+    // Swipe up and flip not at 0 → intercept
+    if (deltaY < -3 && rotation > 0) {
       lockScroll();
-    }
-    return;
-  }
+      e.preventDefault();
+      setFlip(rotation - 3);
+      touchStartY = e.touches[0].clientY;
 
-}, { passive: false });
+      if (rotation <= 0) {
+        unlockScroll();
+      }
+      return;
+    }
+
+    // Flip is complete or not started → free scroll
+    unlockScroll();
+  },
+  { passive: false },
+);
 
 document.addEventListener("touchend", () => {
   touchStartY = 0;
+  // Safety: always unlock on finger lift
+  unlockScroll();
 });
 
+emailjs.init("yCgwIWXoWe_klsqNy");
 
-  emailjs.init("yCgwIWXoWe_klsqNy");
+function handleSubmit() {
+  var name = document.getElementById("from_name").value;
+  var email = document.getElementById("from_email").value;
+  var message = document.getElementById("message").value;
+  var btn = document.getElementById("sendBtn");
+  var btnText = document.getElementById("btnText");
+  var bar = document.getElementById("btnBar");
 
-  function handleSubmit() {
-    var name = document.getElementById("from_name").value;
-    var email = document.getElementById("from_email").value;
-    var message = document.getElementById("message").value;
-    var btn = document.getElementById("sendBtn");
-    var btnText = document.getElementById("btnText");
-    var bar = document.getElementById("btnBar");
+  if (!name || !email || !message) return;
 
-    if (!name || !email || !message) return;
+  btn.disabled = true;
+  btnText.textContent = "Sending...";
+  bar.classList.remove("sending");
+  void bar.offsetWidth;
+  bar.classList.add("sending");
 
-    btn.disabled = true;
-    btnText.textContent = "Sending...";
-    bar.classList.remove("sending");
-    void bar.offsetWidth;
-    bar.classList.add("sending");
-
-    emailjs.send("portfolio_contack", "template_mkyegym", {
+  emailjs
+    .send("portfolio_contack", "template_mkyegym", {
       from_name: name,
       from_email: email,
       message: message,
@@ -244,4 +240,4 @@ document.addEventListener("touchend", () => {
       btnText.textContent = "Send Message →";
       btn.disabled = false;
     });
-  }
+}
