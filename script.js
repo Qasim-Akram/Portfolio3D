@@ -242,7 +242,7 @@ function handleSubmit() {
 const CHARS = 'z0156789!@#$§]⌈⟫※¥↨▩▭▤∄⋿∑';
 
 
-function scrambleText(el, finalText, duration = 800) {
+function scrambleText(el, finalText, duration = 750) {
   if (!finalText || !finalText.trim()) return;
   const len = finalText.length;
   const frameDuration = 30;
