@@ -239,7 +239,7 @@ function handleSubmit() {
     });
 }
 
-const CHARS = 'z0156789!@#$§]⌈⟫※¥↨▩▭▤∄⋿∑';
+const CHARS = 'z0156789!@#$§]⌈⟫※¥↨▩▭▤∄⋿∑:)%&~<>/|}{[]';
 
 
 function scrambleText(el, finalText, duration = 750) {
